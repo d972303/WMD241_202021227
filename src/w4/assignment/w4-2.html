@@ -90,12 +90,12 @@
       }
 
       p {
-        margin-block: 8px;
+        margin-bottom: 8px; /* 수정 */
         font-size: 18px;
         font-weight: 400;
       }
 
-      .container-1 {
+      .section {
         margin-block: 48px;
       }
 
@@ -121,6 +121,10 @@
       .step {
         margin-bottom: 20px;
       }
+
+      figure {
+        margin-block: 1.5rem;
+      }
     </style>
   </head>
   <body>
@@ -129,12 +133,16 @@
       <p style="font-weight: 700; font-size: 18px">CLAIRE SAFFITZ</p>
       <p style="font-weight: 500; font-size: 18px">레서피</p>
       <p class="color" style="margin-bottom: 24px">2023.01.04</p>
-      <img
-        style="width: max-content 960px; margin-inline: 0px"
-        src="../../../assets/pasta-carbonara.jpg"
-        alt="흰 접시 위에 담긴 카르보나라 파스타 관찰레가 같이 버무려져있다"
-      />
-      <p class="color">사진: Chelsie Craig, 스타일링: Molly Baz</p>
+      <figure>
+        <img
+          style="width: max-content 960px; margin-inline: 0px"
+          src="../../../assets/pasta-carbonara.jpg"
+          alt="흰 접시 위에 담긴 카르보나라 파스타 관찰레가 같이 버무려져있다"
+        />
+        <figcaption class="color">
+          사진: Chelsie Craig, 스타일링: Molly Baz
+        </figcaption>
+      </figure>
       <p style="margin-block: 24px 16px; font-weight: 500">
         <strong>총 소요 시간 24분</strong>
       </p>
@@ -168,7 +176,7 @@
         선택한 것입니다. 그러나 아래의 소매 링크를 통해 구매해주신다면 저희가
         수수료를 받기에 도움이 됩니다.
       </p>
-      <div class="container-1">
+      <div class="section">
         <h2>재료</h2>
         <p class="color" style="margin-block: 12px">4인분기준</p>
         <table>
@@ -221,7 +229,7 @@
           </tr>
         </table>
       </div>
-      <div class="container-1">
+      <div class="section">
         <h2>준비</h2>
         <h3>단계 1</h3>
         <p class="step">
