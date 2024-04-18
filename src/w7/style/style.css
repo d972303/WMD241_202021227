@@ -1,0 +1,113 @@
+* {
+  box-sizing: border-box;
+}
+
+/* 바디에 있는 기본 div뺌 */
+body {
+  margin: 0;
+  font-size: 1.125rem;
+}
+
+h1,
+h2 {
+  text-align: center;
+}
+
+.container {
+  max-width: 800px;
+  margin-inline: auto;
+  background-color: oklch(90% 0 1);
+  padding-inline: 2.5rem;
+}
+
+.container > div {
+  padding: 1rem;
+}
+
+.container > div:nth-child(1) {
+  background-color: oklch(90% 0.05 0);
+  border: 1px dotted oklch(40% 0.05 0);
+  color: oklch(20% 0.05 0);
+}
+.container > div:nth-child(2) {
+  background-color: oklch(90% 0.05 40);
+  border: 1px dotted oklch(40% 0.05 40);
+  color: oklch(20% 0.05 40);
+}
+.container > div:nth-child(3) {
+  background-color: oklch(90% 0.05 80);
+  border: 1px dotted oklch(40% 0.05 80);
+  color: oklch(20% 0.05 80);
+}
+.container > div:nth-child(4) {
+  background-color: oklch(90% 0.05 120);
+  border: 1px dotted oklch(40% 0.05 120);
+  color: oklch(20% 0.05 120);
+}
+.container > div:nth-child(5) {
+  background-color: oklch(90% 0.05 160);
+  border: 1px dotted oklch(40% 0.05 160);
+  color: oklch(20% 0.05 160);
+}
+
+.flex-container {
+  display: flex;
+}
+
+.flex-child-opt-1 {
+  flex-grow: 1;
+  /* flex-shrink: ; */
+  /* flex-basis: ; */
+}
+
+/* .flex-container > * {
+  flex-grow: 1;
+} 오늘은 안쓰는 이유는 위의 코드까지 변하기 때문 원래는 이렇게 쓰면 됨*/
+
+.flex-child-opt-2 {
+  flex-basis: 0; /*여기서 의미하는 flex는 children을 배치하고 남은 공간의 사이즈를 말하는거라 0을 해주면 균등분배가 됨*/
+  flex-grow: 1;
+}
+
+.flex-container-opt-1 {
+  gap: 1rem;
+  /* row-gap: ; 세로 */
+  /* column-gap: ; 가로. 지금 다루고 있는거*/
+}
+
+.flex-container-opt-2 {
+  /* justify-content: left; */
+  /* justify-content: right; */
+  /* justify-content: center; */
+  /* justify-content: space-around; */
+  justify-content: space-between;
+  /* justify-content: space-evenly; */
+}
+
+.flex-container-opt-3 {
+  align-items: center;
+}
+
+.flex-container-opt-4 {
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-container-opt-4 > * {
+  width: 120px; /*width를 박으면 일정사이즈가 됨*/
+}
+
+.flex-wrap {
+  flex-wrap: wrap; /*norap이 기본, wrap 줄바꿈하다*/
+}
+
+.flex-wrap-opt-1 {
+  column-gap: 12px;
+  row-gap: 24px;
+}
+.flex-wrap-opt-1 > * {
+  flex-grow: 1;
+  flex-basis: 0;
+  min-width: 160px; /*160px보다 작으면 내려가*/
+}
