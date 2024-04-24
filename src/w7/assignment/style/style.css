@@ -2,19 +2,205 @@
   box-sizing: border-box;
 }
 
-body {
-  margin: 0;
-  font-size: 18px;
+p {
+  margin: 0px;
 }
 
-.container {
+body {
+  margin: 0%;
+  /* for work */
+  /* background-color: cyan; */
+}
+
+.layout {
+  /* for work */
+  /* background-color: blueviolet; */
+}
+/* 여기서부터 topbar */
+.topbar {
+  padding-inline: 30px;
+  background-color: black;
+  color: white;
+}
+
+.topbar--inner {
+  /* margin-block: 19px; */
+  padding-block: 19px;
+  margin-inline: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topbar--inner-left {
   display: flex;
 }
 
-.section {
+.topbar--inner-right {
+  display: flex;
 }
 
-.background-color-black {
-  background-color: black;
-  color: bisque;
+.inner-left-img {
+  width: 32.02px;
+  height: 32.02px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.inner-left-abs {
+  font-size: 17px;
+  font-weight: 500;
+}
+.inner-left-help {
+  padding-block: 2px 4px;
+  margin-top: 4px;
+  border-left: 1px solid white;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.topbar--inner-right p {
+  margin-left: 16px;
+}
+
+.topbar--submit {
+  border: 1px solid white;
+  border-radius: 5px;
+  padding-block: 6px;
+  padding-inline: 22px;
+}
+
+.topbar--signin {
+  background-color: rgb(76, 95, 213);
+  border: 1px solid rgb(76, 95, 213);
+  border-radius: 5px;
+  padding-block: 6px;
+  padding-inline: 32px;
+}
+
+/* 여기서부터 main-hero */
+.main--hero-backgroundcolor {
+  background-color: rgb(218, 219, 241);
+}
+
+.main--hero {
+  padding-block: 80px 115px;
+  padding-inline: 30px;
+}
+
+.main--hero-how {
+  margin-bottom: 16px;
+  font-size: 80px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.main--hero-search {
+  border: 1px solid black;
+  background-color: white;
+  padding: 16px;
+  max-width: 720px;
+  margin-inline: auto;
+  justify-content: space-between;
+  color: darkgrey;
+  box-shadow: 2px 2px 5px;
+  border-radius: 5px;
+  display: flex;
+}
+
+.hero--search-text {
+  font-size: 20px;
+  color: darkgrey;
+}
+
+.hero--search-etc {
+  font-size: 25px;
+  color: black;
+}
+
+/* 여기서부터 main--container */
+.list--item-img img {
+  max-height: 84.2px;
+  margin-right: 30px;
+}
+
+.main--container {
+  padding-inline: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.main--container h4 {
+  margin-block: 48px 16px;
+  font-size: 24px;
+}
+
+/* .main--container div {
+  font-size: 24px;
+} */
+
+.items-inner-learn {
+  font-size: 18px;
+  color: rgb(76, 95, 213);
+}
+
+.main--container-category {
+  margin-block: 128px 64px;
+}
+
+.category--list {
+  margin-bottom: 48px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.list--item-img {
+  margin-top: 50px;
+}
+
+.items-inner-text {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.list--items-inner {
+  padding-right: 24px;
+  flex-wrap: wrap;
+}
+.category--list-item {
+  display: flex;
+  min-height: 115px;
+  width: 50%;
+  margin-bottom: 48px;
+  padding-right: 16px;
+}
+
+/* 여기서부터 footer */
+
+.footer {
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  padding: 0px 30px 60px 30px;
+  display: flex;
+}
+
+.footer--inner {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 100px;
+}
+.footer--inner-left {
+  display: flex;
+  justify-content: space-between;
+}
+.footer p {
+  margin: 0;
+}
+
+.footer h3 {
+  margin-block: 48px 16px;
+}
+
+.footer--inner-right > .inner-left-img {
+  margin-bottom: 20px;
 }
