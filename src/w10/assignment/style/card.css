@@ -1,0 +1,17 @@
+.card {
+  padding-inline: 24px;
+  padding-block: 24px 40px;
+  border-radius: 8px;
+  border: 1px solid rgb(172, 172, 175);
+}
+.card--logo {
+  width: 40px;
+  height: 40px;
+}
+.card > p {
+  color: #381fd1;
+  margin-block: 12px 8px;
+}
+.card > h4 {
+  margin-block: 0px 8px;
+}
