@@ -88,10 +88,66 @@ p {
       }
     }
   }
-  &-main {
+  &-main-top {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     column-gap: 32px;
     row-gap: 32px;
+  }
+  &-main-bottom {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 261px);
+    column-gap: 32px;
+    row-gap: 32px;
+  }
+}
+
+.card {
+  &__bottom {
+    &-img {
+    }
+  }
+  &--img {
+    width: 261px;
+    display: block;
+    vertical-align: middle;
+  }
+}
+
+.footer {
+  margin-top: 96px;
+  background-color: #10284b;
+  color: #fff;
+  padding-inline: 24px;
+  &__container {
+    padding-top: 80px;
+  }
+  &__collection {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+    &-items {
+      & > p {
+        margin-bottom: 8px;
+      }
+    }
+  }
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    padding-block: 80px;
+    &-left {
+      display: grid;
+      column-gap: 12px;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+    &-right {
+      color: #fedb63;
+    }
+    &-img {
+      & > img {
+        width: 2rem;
+      }
+    }
   }
 }

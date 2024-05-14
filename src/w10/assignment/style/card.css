@@ -1,4 +1,4 @@
-.card {
+.card-top {
   padding-inline: 24px;
   padding-block: 24px 40px;
   border-radius: 8px;
@@ -7,6 +7,9 @@
 .card--logo {
   width: 40px;
   height: 40px;
+}
+.card-bottom {
+  padding: 32px;
 }
 .card > p {
   color: #381fd1;

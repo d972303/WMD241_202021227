@@ -1,11 +1,16 @@
 .card {
-  padding-inline: 24px;
-  padding-block: 24px 40px;
-  border-radius: 8px;
-  border: 1px solid rgb(172, 172, 175);
+  &-top {
+    padding-inline: 24px;
+    padding-block: 24px 40px;
+    border-radius: 8px;
+    border: 1px solid rgb(172, 172, 175);
+  }
   &--logo {
     width: 40px;
     height: 40px;
+  }
+  &-bottom {
+    padding: 32px;
   }
   & > p {
     color: #381fd1;
