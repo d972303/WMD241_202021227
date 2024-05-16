@@ -1,0 +1,46 @@
+:root {
+  --fixed-m-x: 15px;
+  --fixed-m-y: 20px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+img {
+  display: block;
+}
+
+.fixed {
+  position: fixed;
+}
+.fixed--pos-tl {
+  top: var(--fixed-m-x);
+  left: var(--fixed-m-y);
+}
+.fixed--pos-tr {
+  top: var(--fixed-m-x);
+  right: var(--fixed-m-y);
+}
+.fixed--pos-br {
+  bottom: var(--fixed-m-x);
+  right: var(--fixed-m-y);
+}
+.fixed--pos-bl {
+  bottom: var(--fixed-m-x);
+  left: var(--fixed-m-y);
+}
+.fixed a {
+  color: currentColor;
+  text-decoration: none;
+}
+.fixed--role-logo {
+  width: 260px;
+  aspect-ratio: 519/58;
+}

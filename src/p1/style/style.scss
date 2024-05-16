@@ -1,0 +1,54 @@
+$bgcolors: #fd5f8d, #fff, #00c1b5, #ff651a, #ffbe00, #1d3fbb, #e30512;
+
+:root {
+  --fixed-m-x: 15px;
+  --fixed-m-y: 20px;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+img {
+  display: block;
+}
+
+.fixed {
+  position: fixed;
+  &--pos {
+    &-tl {
+      top: var(--fixed-m-x);
+      left: var(--fixed-m-y);
+    }
+    &-tr {
+      top: var(--fixed-m-x);
+      right: var(--fixed-m-y);
+    }
+    &-br {
+      bottom: var(--fixed-m-x);
+      right: var(--fixed-m-y);
+    }
+    &-bl {
+      bottom: var(--fixed-m-x);
+      left: var(--fixed-m-y);
+    }
+  }
+
+  #a (*&), //a태그이자 fixed일 때
+  a {
+    color: currentColor; //현재 글자 색 적용
+    text-decoration: none;
+  }
+
+  &--role {
+    &-logo {
+      width: 260px;
+      aspect-ratio: 519 / 58;
+    }
+  }
+}
