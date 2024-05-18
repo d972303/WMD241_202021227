@@ -1,8 +1,13 @@
-$bgcolors: #fd5f8d, #fff, #00c1b5, #ff651a, #ffbe00, #1d3fbb, #e30512;
+@use "sass:list";
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+$bgcolors: #e30512, #1d3fbb, #ffbe00, #ff651a, #00c1b5, #ffffff, #fd5f8d;
 
 :root {
   --fixed-m-x: 15px;
   --fixed-m-y: 20px;
+  --logo-h: 30px;
 }
 *,
 *::before,
@@ -12,6 +17,9 @@ $bgcolors: #fd5f8d, #fff, #00c1b5, #ff651a, #ffbe00, #1d3fbb, #e30512;
 
 body {
   margin: 0;
+  font-size: 18px;
+  line-height: 25px;
+  font-family: "Roboto", sans-serif;
 }
 
 img {
@@ -20,10 +28,25 @@ img {
 
 .fixed {
   position: fixed;
+  display: none;
+
+  //a 태그이자 fixed일 때,
+  //at-root를 넣지 않으면 fixed 밑에 a태그이자 fixed가 있는 경우로 표시됨
+  //고급문법...
+  @at-root a#{&},
+    & a {
+    color: currentColor; //현재 글자 색 적용
+  }
+
+  p {
+    margin-block: 0;
+  }
+
   &--pos {
     &-tl {
       top: var(--fixed-m-x);
       left: var(--fixed-m-y);
+      display: block;
     }
     &-tr {
       top: var(--fixed-m-x);
@@ -36,19 +59,97 @@ img {
     &-bl {
       bottom: var(--fixed-m-x);
       left: var(--fixed-m-y);
+      right: calc(var(--fixed-m-x) + 64px + 100px);
     }
-  }
-
-  #a (*&), //a태그이자 fixed일 때
-  a {
-    color: currentColor; //현재 글자 색 적용
-    text-decoration: none;
   }
 
   &--role {
     &-logo {
-      width: 260px;
+      height: var(--logo-h);
       aspect-ratio: 519 / 58;
     }
+
+    &-contact {
+      font-weight: 700;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    &-list {
+      margin-block: 0;
+      padding-left: 0;
+      list-style: none;
+      line-height: 28.8px;
+      text-transform: capitalize;
+      //solution 1
+      // display: flex;
+      // flex-direction: column-reverse;
+      //solution 2
+      transform: rotate(180deg);
+      > li {
+        transform: rotate(180deg);
+        > a {
+          text-decoration: none;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    &-about {
+      //ch글자를 기준으로 하는 단위, 30ch=30글자에 해당하는 너비로 치환되어 들어갈 것
+      //어떤 폰트, 굵기, 크기냐에 영향을 받는다
+      //ch단위를 쓰기 전에는 몇글자정도 들어간다는 설정을 미리 넣어주고 들어가면 된다
+      max-width: 30ch;
+      // font-size: 18px; body에서 정의한 것과 동일
+      font-weight: 700;
+      text-wrap: balance; //예쁘게 줄바꿈해줌
+    }
+  }
+
+  &__copyright {
+    font-size: 12px;
+    font-weight: 400;
+    > a {
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  &__policy {
+    margin-top: 1lh; //linehight=lh, linehight랑 똑같은 값을 넣어줌
+    display: block; //a태그는 기본적으로 display inline이라 마진값이 잘 먹지 않으니 p태그처럼 작동하도록 block을 걸어주는 것
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+#issue {
+  @for $i from 1 through 7 {
+    &-#{$i} {
+      background-color: list.nth($bgcolors, $i);
+    }
+  }
+}
+
+.issue {
+  display: grid;
+  grid-template-rows: calc(2 * var(--fixed-m-y) + var(--logo-h)) 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  min-height: 100svh;
+  //vh = viewport의 높이
+  //vh 앞에는 s/d/l이 붙을 수 있고 안붙여도 된다
+  //모바일 주소표시줄을 기준으로
+  //s = 주소표시줄이 있는 경우를 상정해서 만든 짧은 사이즈
+  //d = 주소표시줄이 있을 경우 없을 경우를 고려한 사이즈
+  //l = 주소표시줄이 없는 기준으로 최대한 크게
+  //d는 쓰지 말라고 하심
+  p {
+    margin-block: 0;
   }
 }

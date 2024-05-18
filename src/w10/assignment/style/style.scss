@@ -239,6 +239,7 @@ p {
   &__collection {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    // grid-template-rows: repeat(2, 1fr);
     gap: 3rem;
     &-items {
       & > p {
@@ -274,18 +275,3 @@ p {
     }
   }
 }
-
-// &__container {
-//   // margin: auto;
-//   display: grid;
-//   margin-inline: auto;
-//   justify-content: center;
-
-//   &-center {
-//     max-width: 1200px;
-//     padding-inline: 24px;
-//     display: grid;
-//     grid-template-columns: 1fr 3fr;
-//     // justify-content: center;
-//   }
-// }

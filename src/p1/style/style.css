@@ -1,6 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 :root {
   --fixed-m-x: 15px;
   --fixed-m-y: 20px;
+  --logo-h: 30px;
 }
 
 *,
@@ -11,6 +13,9 @@
 
 body {
   margin: 0;
+  font-size: 18px;
+  line-height: 25px;
+  font-family: "Roboto", sans-serif;
 }
 
 img {
@@ -19,10 +24,19 @@ img {
 
 .fixed {
   position: fixed;
+  display: none;
+}
+a.fixed, .fixed a {
+  color: currentColor;
+}
+
+.fixed p {
+  margin-block: 0;
 }
 .fixed--pos-tl {
   top: var(--fixed-m-x);
   left: var(--fixed-m-y);
+  display: block;
 }
 .fixed--pos-tr {
   top: var(--fixed-m-x);
@@ -35,12 +49,84 @@ img {
 .fixed--pos-bl {
   bottom: var(--fixed-m-x);
   left: var(--fixed-m-y);
-}
-.fixed a {
-  color: currentColor;
-  text-decoration: none;
+  right: calc(var(--fixed-m-x) + 64px + 100px);
 }
 .fixed--role-logo {
-  width: 260px;
+  height: var(--logo-h);
   aspect-ratio: 519/58;
+}
+.fixed--role-contact {
+  font-weight: 700;
+  text-decoration: none;
+}
+.fixed--role-contact:hover {
+  text-decoration: underline;
+}
+.fixed--role-list {
+  margin-block: 0;
+  padding-left: 0;
+  list-style: none;
+  line-height: 28.8px;
+  text-transform: capitalize;
+  transform: rotate(180deg);
+}
+.fixed--role-list > li {
+  transform: rotate(180deg);
+}
+.fixed--role-list > li > a {
+  text-decoration: none;
+}
+.fixed--role-list > li > a:hover {
+  text-decoration: underline;
+}
+.fixed--role-about {
+  max-width: 30ch;
+  font-weight: 700;
+  text-wrap: balance;
+}
+.fixed__copyright {
+  font-size: 12px;
+  font-weight: 400;
+}
+.fixed__copyright > a:hover {
+  text-decoration: none;
+}
+.fixed__policy {
+  margin-top: 1lh;
+  display: block;
+}
+.fixed__policy:hover {
+  text-decoration: none;
+}
+
+#issue-1 {
+  background-color: #e30512;
+}
+#issue-2 {
+  background-color: #1d3fbb;
+}
+#issue-3 {
+  background-color: #ffbe00;
+}
+#issue-4 {
+  background-color: #ff651a;
+}
+#issue-5 {
+  background-color: #00c1b5;
+}
+#issue-6 {
+  background-color: #ffffff;
+}
+#issue-7 {
+  background-color: #fd5f8d;
+}
+
+.issue {
+  display: grid;
+  grid-template-rows: calc(2 * var(--fixed-m-y) + var(--logo-h)) 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  min-height: 100svh;
+}
+.issue p {
+  margin-block: 0;
 }
