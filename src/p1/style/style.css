@@ -6,16 +6,16 @@
 }
 
 *,
-*::before,
-*::after {
+::before,
+::after {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
+  font-family: "Roboto", sans-serif;
   font-size: 18px;
   line-height: 25px;
-  font-family: "Roboto", sans-serif;
 }
 
 img {
@@ -23,8 +23,8 @@ img {
 }
 
 .fixed {
-  position: fixed;
   display: none;
+  position: fixed;
 }
 a.fixed, .fixed a {
   color: currentColor;
@@ -34,9 +34,9 @@ a.fixed, .fixed a {
   margin-block: 0;
 }
 .fixed--pos-tl {
+  display: block;
   top: var(--fixed-m-x);
   left: var(--fixed-m-y);
-  display: block;
 }
 .fixed--pos-tr {
   top: var(--fixed-m-x);
@@ -80,20 +80,23 @@ a.fixed, .fixed a {
   text-decoration: underline;
 }
 .fixed--role-about {
-  max-width: 30ch;
-  font-weight: 700;
   text-wrap: balance;
+  max-width: 40ch;
+  font-weight: 700;
 }
 .fixed__copyright {
   font-size: 12px;
-  font-weight: 400;
+  font-weight: 400px;
 }
 .fixed__copyright > a:hover {
   text-decoration: none;
 }
 .fixed__policy {
-  margin-top: 1lh;
   display: block;
+  margin-top: 1lh;
+  font-size: 12px;
+  font-weight: 400px;
+  text-decoration: underline;
 }
 .fixed__policy:hover {
   text-decoration: none;
@@ -123,10 +126,19 @@ a.fixed, .fixed a {
 
 .issue {
   display: grid;
-  grid-template-rows: calc(2 * var(--fixed-m-y) + var(--logo-h)) 1fr 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: minmax(calc(2 * var(--fixed-m-y) + var(--logo-h)), 1fr) auto 5lh minmax(calc(2 * var(--fixed-m-y)), 0.5fr);
+  grid-template-columns: minmax(var(--fixed-m-x), 1fr) minmax(0, 420px) minmax(var(--fixed-m-x), 1fr);
   min-height: 100svh;
 }
 .issue p {
   margin-block: 0;
+}
+.issue__img {
+  grid-column: 2;
+  grid-row: 2;
+  justify-self: stretch;
+}
+.issue__text {
+  grid-column: 2;
+  grid-row: 3;
 }

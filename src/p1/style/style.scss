@@ -1,6 +1,6 @@
-@use "sass:list";
+@use 'sass:list';
 
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 $bgcolors: #e30512, #1d3fbb, #ffbe00, #ff651a, #00c1b5, #ffffff, #fd5f8d;
 
@@ -9,17 +9,18 @@ $bgcolors: #e30512, #1d3fbb, #ffbe00, #ff651a, #00c1b5, #ffffff, #fd5f8d;
   --fixed-m-y: 20px;
   --logo-h: 30px;
 }
+
 *,
-*::before,
-*::after {
+::before,
+::after {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
+  font-family: 'Roboto', sans-serif;
   font-size: 18px;
   line-height: 25px;
-  font-family: "Roboto", sans-serif;
 }
 
 img {
@@ -27,15 +28,13 @@ img {
 }
 
 .fixed {
-  position: fixed;
+  //
   display: none;
+  position: fixed;
 
-  //a 태그이자 fixed일 때,
-  //at-root를 넣지 않으면 fixed 밑에 a태그이자 fixed가 있는 경우로 표시됨
-  //고급문법...
   @at-root a#{&},
     & a {
-    color: currentColor; //현재 글자 색 적용
+    color: currentColor;
   }
 
   p {
@@ -44,9 +43,10 @@ img {
 
   &--pos {
     &-tl {
+      //
+      display: block;
       top: var(--fixed-m-x);
       left: var(--fixed-m-y);
-      display: block;
     }
     &-tr {
       top: var(--fixed-m-x);
@@ -68,7 +68,6 @@ img {
       height: var(--logo-h);
       aspect-ratio: 519 / 58;
     }
-
     &-contact {
       font-weight: 700;
       text-decoration: none;
@@ -76,17 +75,14 @@ img {
         text-decoration: underline;
       }
     }
-
     &-list {
       margin-block: 0;
       padding-left: 0;
       list-style: none;
       line-height: 28.8px;
       text-transform: capitalize;
-      //solution 1
       // display: flex;
       // flex-direction: column-reverse;
-      //solution 2
       transform: rotate(180deg);
       > li {
         transform: rotate(180deg);
@@ -98,31 +94,29 @@ img {
         }
       }
     }
-
     &-about {
-      //ch글자를 기준으로 하는 단위, 30ch=30글자에 해당하는 너비로 치환되어 들어갈 것
-      //어떤 폰트, 굵기, 크기냐에 영향을 받는다
-      //ch단위를 쓰기 전에는 몇글자정도 들어간다는 설정을 미리 넣어주고 들어가면 된다
-      max-width: 30ch;
-      // font-size: 18px; body에서 정의한 것과 동일
+      text-wrap: balance;
+      max-width: 40ch;
       font-weight: 700;
-      text-wrap: balance; //예쁘게 줄바꿈해줌
     }
   }
-
+  &__desc {
+  }
   &__copyright {
     font-size: 12px;
-    font-weight: 400;
+    font-weight: 400px;
     > a {
       &:hover {
         text-decoration: none;
       }
     }
   }
-
   &__policy {
-    margin-top: 1lh; //linehight=lh, linehight랑 똑같은 값을 넣어줌
-    display: block; //a태그는 기본적으로 display inline이라 마진값이 잘 먹지 않으니 p태그처럼 작동하도록 block을 걸어주는 것
+    display: block;
+    margin-top: 1lh;
+    font-size: 12px;
+    font-weight: 400px;
+    text-decoration: underline;
     &:hover {
       text-decoration: none;
     }
@@ -139,17 +133,26 @@ img {
 
 .issue {
   display: grid;
-  grid-template-rows: calc(2 * var(--fixed-m-y) + var(--logo-h)) 1fr 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: minmax(calc(2 * var(--fixed-m-y) + var(--logo-h)), 1fr) auto 5lh minmax(
+      calc(2 * var(--fixed-m-y)),
+      0.5fr
+    );
+  grid-template-columns: minmax(var(--fixed-m-x), 1fr) minmax(0, 420px) minmax(
+      var(--fixed-m-x),
+      1fr
+    );
   min-height: 100svh;
-  //vh = viewport의 높이
-  //vh 앞에는 s/d/l이 붙을 수 있고 안붙여도 된다
-  //모바일 주소표시줄을 기준으로
-  //s = 주소표시줄이 있는 경우를 상정해서 만든 짧은 사이즈
-  //d = 주소표시줄이 있을 경우 없을 경우를 고려한 사이즈
-  //l = 주소표시줄이 없는 기준으로 최대한 크게
-  //d는 쓰지 말라고 하심
   p {
     margin-block: 0;
+  }
+
+  &__img {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: stretch;
+  }
+  &__text {
+    grid-column: 2;
+    grid-row: 3;
   }
 }
