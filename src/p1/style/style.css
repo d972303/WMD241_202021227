@@ -3,6 +3,7 @@
   --fixed-m-x: 0.9375rem;
   --fixed-m-y: 1.25rem;
   --logo-h: 1.875rem;
+  --logo-h-md: 16px;
 }
 
 *,
@@ -89,6 +90,11 @@ a.fixed, .fixed a {
 .fixed--role-logo {
   height: var(--logo-h);
   aspect-ratio: 519/58;
+}
+@media (width < 760px) {
+  .fixed--role-logo {
+    height: var(--logo-h-md);
+  }
 }
 .fixed--role-contact {
   font-weight: 700;
@@ -188,11 +194,23 @@ a.fixed, .fixed a {
 
 .footer {
   display: none;
-  position: relative;
 }
 @media (width < 1000px) {
   .footer {
-    display: block;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: end;
+    padding-inline: var(--fixed-m-x);
+    padding-bottom: var(--fixed-m-y);
+  }
+}
+@media (width < 560px) {
+  .footer {
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    gap: 1lh;
   }
 }
 a.footer, .footer a {
@@ -200,7 +218,6 @@ a.footer, .footer a {
 }
 
 .footer__contact {
-  position: absolute;
   right: var(--fixed-m-x);
   bottom: var(--fixed-m-y);
   font-weight: 700;
@@ -213,6 +230,12 @@ a.footer, .footer a {
   text-wrap: balance;
   max-width: 30ch;
   font-weight: 700;
+}
+@media (width < 560px) {
+  .footer__about {
+    max-width: unset;
+    text-align: center;
+  }
 }
 .footer__copyright {
   font-size: 0.75rem;

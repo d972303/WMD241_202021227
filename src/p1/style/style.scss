@@ -8,9 +8,12 @@ $bgcolors: #e30512, #1d3fbb, #ffbe00, #ff651a, #00c1b5, #ffffff, #fd5f8d;
   --fixed-m-x: 0.9375rem;
   --fixed-m-y: 1.25rem;
   --logo-h: 1.875rem;
+  --logo-h-md: 16px;
 }
 
 $bp-lg: 1000px;
+$bp-md: 760px;
+$bp-sm: 560px;
 
 *,
 ::before,
@@ -34,6 +37,9 @@ body {
   animation-name: bg-change;
   background-color: list.nth($bgcolors, 7);
   animation-timeline: scroll();
+  // @media (width < $bp-lg) {
+  //   animation-name: bg-change-margin;
+  // }
 }
 
 @keyframes bg-change {
@@ -47,6 +53,18 @@ body {
     background-color: list.nth($bgcolors, 1);
   }
 }
+
+// @keyframes bg-change-margin {
+//   @for $i from 0 through 5 {
+//     #{100 / 6 * $i}#{'%'},
+//     #{100 / 6 * $i + 100 / 12}#{'%'} {
+//       background-color: list.nth($bgcolors, 7 - $i);
+//     }
+//   }
+//   100% {
+//     background-color: list.nth($bgcolors, 1);
+//   }
+// }
 
 img {
   display: block;
@@ -89,6 +107,9 @@ img {
     &-logo {
       height: var(--logo-h);
       aspect-ratio: 519 / 58;
+      @media (width < $bp-md) {
+        height: var(--logo-h-md);
+      }
     }
     &-contact {
       font-weight: 700;
@@ -205,10 +226,21 @@ img {
 
 .footer {
   display: none;
-  position: relative;
 
   @media (width < $bp-lg) {
-    display: block;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: end;
+    padding-inline: var(--fixed-m-x);
+    padding-bottom: var(--fixed-m-y);
+  }
+
+  @media (width < $bp-sm) {
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    gap: 1lh;
   }
 
   @at-root a#{&},
@@ -217,7 +249,6 @@ img {
   }
 
   &__contact {
-    position: absolute;
     right: var(--fixed-m-x);
     bottom: var(--fixed-m-y);
     font-weight: 700;
@@ -230,6 +261,10 @@ img {
     text-wrap: balance;
     max-width: 30ch;
     font-weight: 700;
+    @media (width < $bp-sm) {
+      max-width: unset;
+      text-align: center;
+    }
   }
   &__copyright {
     font-size: 0.75rem;
