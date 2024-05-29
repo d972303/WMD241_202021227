@@ -15,6 +15,11 @@ html {
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
 }
+@media (width < 1000px) {
+  html {
+    scroll-snap-type: none;
+  }
+}
 
 body {
   margin: 0;
@@ -92,6 +97,11 @@ a.fixed, .fixed a {
 .fixed--role-contact:hover {
   text-decoration: underline;
 }
+@media (width < 1000px) {
+  .fixed--role-contact {
+    display: none;
+  }
+}
 .fixed--role-list {
   margin-block: 0;
   padding-left: 0;
@@ -109,10 +119,20 @@ a.fixed, .fixed a {
 .fixed--role-list > li > a:hover {
   text-decoration: underline;
 }
+@media (width < 1000px) {
+  .fixed--role-list {
+    display: none;
+  }
+}
 .fixed--role-about {
   text-wrap: balance;
   max-width: 30ch;
   font-weight: 700;
+}
+@media (width < 1000px) {
+  .fixed--role-about {
+    display: none;
+  }
 }
 .fixed__copyright {
   font-size: 0.75rem;
@@ -164,4 +184,50 @@ a.fixed, .fixed a {
   text-transform: uppercase;
   margin-block: 1lh 0;
   font-weight: 700;
+}
+
+.footer {
+  display: none;
+  position: relative;
+}
+@media (width < 1000px) {
+  .footer {
+    display: block;
+  }
+}
+a.footer, .footer a {
+  color: currentColor;
+}
+
+.footer__contact {
+  position: absolute;
+  right: var(--fixed-m-x);
+  bottom: var(--fixed-m-y);
+  font-weight: 700;
+  text-decoration: none;
+}
+.footer__contact:hover {
+  text-decoration: underline;
+}
+.footer__about {
+  text-wrap: balance;
+  max-width: 30ch;
+  font-weight: 700;
+}
+.footer__copyright {
+  font-size: 0.75rem;
+  font-weight: 25rem;
+}
+.footer__copyright > a:hover {
+  text-decoration: none;
+}
+.footer__policy {
+  display: block;
+  margin-top: 1lh;
+  font-size: 0.75rem;
+  font-weight: 25rem;
+  text-decoration: underline;
+}
+.footer__policy:hover {
+  text-decoration: none;
 }

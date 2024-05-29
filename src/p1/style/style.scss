@@ -10,6 +10,8 @@ $bgcolors: #e30512, #1d3fbb, #ffbe00, #ff651a, #00c1b5, #ffffff, #fd5f8d;
   --logo-h: 1.875rem;
 }
 
+$bp-lg: 1000px;
+
 *,
 ::before,
 ::after {
@@ -19,6 +21,9 @@ $bgcolors: #e30512, #1d3fbb, #ffbe00, #ff651a, #00c1b5, #ffffff, #fd5f8d;
 html {
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
+  @media (width < $bp-lg) {
+    scroll-snap-type: none;
+  }
 }
 
 body {
@@ -91,6 +96,9 @@ img {
       &:hover {
         text-decoration: underline;
       }
+      @media (width < $bp-lg) {
+        display: none;
+      }
     }
     &-list {
       margin-block: 0;
@@ -110,11 +118,17 @@ img {
           }
         }
       }
+      @media (width < $bp-lg) {
+        display: none;
+      }
     }
     &-about {
       text-wrap: balance;
       max-width: 30ch;
       font-weight: 700;
+      @media (width < $bp-lg) {
+        display: none;
+      }
     }
   }
   &__desc {
@@ -186,5 +200,54 @@ img {
     text-transform: uppercase;
     margin-block: 1lh 0;
     font-weight: 700;
+  }
+}
+
+.footer {
+  display: none;
+  position: relative;
+
+  @media (width < $bp-lg) {
+    display: block;
+  }
+
+  @at-root a#{&},
+    & a {
+    color: currentColor;
+  }
+
+  &__contact {
+    position: absolute;
+    right: var(--fixed-m-x);
+    bottom: var(--fixed-m-y);
+    font-weight: 700;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  &__about {
+    text-wrap: balance;
+    max-width: 30ch;
+    font-weight: 700;
+  }
+  &__copyright {
+    font-size: 0.75rem;
+    font-weight: 25rem;
+    > a {
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+  &__policy {
+    display: block;
+    margin-top: 1lh;
+    font-size: 0.75rem;
+    font-weight: 25rem;
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
   }
 }
