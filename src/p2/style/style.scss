@@ -1,0 +1,55 @@
+$middle-w-mx: 75rem;
+$middle-p-x: 1.5rem;
+$sidebar-w: 17.5rem;
+$middle-gap: 4rem;
+$main-gap: 32px;
+$card-w-mn: 200px;
+
+//for div
+div {
+  min-height: 6.25rem;
+}
+
+.middle {
+  background-color: oklch(95% 0 0deg); //for div
+  padding-inline: $middle-p-x;
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: $sidebar-w auto;
+    margin-inline: auto;
+    max-width: $middle-w-mx;
+    background-color: oklch(90% 0 0deg); //for div
+    column-gap: $middle-gap;
+  }
+}
+
+.sidebar {
+  background-color: oklch(90% 0.05 0deg); //for div
+}
+
+.main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($card-w-mn, 1fr));
+  gap: $main-gap;
+  background-color: oklch(90% 0.05 60deg); //for div
+  > div {
+    background-color: oklch(90% 0.05 120deg); //for div
+  }
+}
+
+.header {
+  grid-column: 1 / -1;
+  background-color: oklch(90% 0.5 250deg) !important; //for div
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-auto-rows: 1fr;
+  gap: $main-gap;
+  grid-column: 1 / -1;
+  > div {
+    background-color: black;
+  }
+}
