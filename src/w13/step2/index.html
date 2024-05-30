@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lottie Embeding</title>
+    <script
+      src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+      type="module"
+    ></script>
+    <link rel="stylesheet" href="./style/style.css" />
+    <script src="https://unpkg.com/@lottiefiles/lottie-interactivity@latest/dist/lottie-interactivity.min.js"></script>
+    <script>
+      LottieInteractivity.create({
+        player: '#lottie-2',
+        mode: 'cursor',
+        actions: [
+          {
+            type: 'click',
+            forceFlag: false,
+          },
+        ],
+      });
+    </script>
+  </head>
+  <body>
+    <div class="section">
+      <div class="container">
+        <h1>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit,
+          quisquam!
+        </h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vero soluta,
+          quisquam consequatur reiciendis modi, delectus temporibus sapiente
+          sunt dignissimos nostrum expedita autem doloremque voluptate, vitae
+          ullam! Sapiente vel saepe ad aliquid consectetur, recusandae magni.
+          Voluptatem praesentium beatae incidunt perferendis repellendus
+          blanditiis iusto nemo quos maiores eligendi. Recusandae deleniti vitae
+          ducimus!
+        </p>
+
+        <dotlottie-player
+          id="lottie-1"
+          class="lottie"
+          src="./assets/lottie-downloaded.json"
+          background="transparent"
+          speed="1"
+          loop
+          autoplay
+        ></dotlottie-player>
+        <lottie-player
+          id="lottie-2"
+          class="lottie"
+          src="https://lottie.host/c4249459-f10d-4f59-8d55-279efced5a5b/bJvtKFU7wS.json"
+          background="transparent"
+          speed="1"
+        ></lottie-player>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga
+          officiis vitae veritatis velit molestiae. Accusamus esse blanditiis
+          molestias. Sit, natus.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
