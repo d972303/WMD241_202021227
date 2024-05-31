@@ -1,9 +1,15 @@
-div {
-  min-height: 6.25rem;
+@import url("https://fonts.googleapis.com/css2?family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
+body {
+  font-family: "Radio Canada Big", sans-serif;
+  color: #10284b;
+}
+
+a {
+  text-decoration: none;
+  color: currentColor;
 }
 
 .middle {
-  background-color: oklch(95% 0 0deg);
   padding-inline: 1.5rem;
 }
 .middle__wrapper {
@@ -11,28 +17,47 @@ div {
   grid-template-columns: 17.5rem auto;
   margin-inline: auto;
   max-width: 75rem;
-  background-color: oklch(90% 0 0deg);
   -moz-column-gap: 4rem;
        column-gap: 4rem;
 }
 
-.sidebar {
-  background-color: oklch(90% 0.05 0deg);
-}
-
 .main {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr));
   gap: 32px;
-  background-color: oklch(90% 0.05 60deg);
-}
-.main > div {
-  background-color: oklch(90% 0.05 120deg);
 }
 
 .header {
   grid-column: 1/-1;
-  background-color: oklch(90% 0.5 250deg) !important;
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: auto min-content;
+  -moz-column-gap: 48px;
+       column-gap: 48px;
+  row-gap: 8px;
+}
+.header__title {
+  font-size: 48px;
+  font-weight: 900;
+  grid-row: 1;
+  grid-column: 1;
+}
+.header__description {
+  font-weight: 20px;
+  line-height: 30px;
+  grid-row: 2;
+  grid-column: 1/-1;
+}
+.header__view-all {
+  align-self: center;
+  text-transform: uppercase;
+  font-family: "Roboto Mono", monospace;
+  color: #381fd1;
+  font-size: 16px;
+  font-weight: 700;
+  grid-row: 1;
+  grid-column: -2;
+  text-wrap: nowrap;
 }
 
 .cards {
@@ -42,6 +67,58 @@ div {
   gap: 32px;
   grid-column: 1/-1;
 }
-.cards > div {
-  background-color: black;
+
+.card {
+  overflow: hidden;
+  display: grid;
+  border-radius: 8px;
+}
+.card--type-a {
+  gap: 0.75rem;
+  padding: 1.5rem;
+  border: 0.0625rem solid #cbcbcd;
+}
+.card--type-b > * {
+  grid-column: 1;
+  grid-row: 1;
+}
+.card--type-b .card__title {
+  margin: 32px;
+}
+.card--type-b:nth-child(2) {
+  background-color: #f3f2fc;
+}
+.card--type-b:nth-child(3) {
+  background-color: #f6f6eb;
+}
+.card__icon {
+  width: 2.5rem;
+  aspect-ratio: 1/1;
+  -o-object-fit: contain;
+     object-fit: contain;
+  border: 1px solid #cbcbcd;
+  border-radius: 0.5rem;
+}
+.card__category {
+  font-family: "Roboto Mono", monospace;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.4rem;
+  color: #381fd1;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  text-wrap: nowrap;
+}
+.card__title {
+  height: 3lh;
+  font-size: 1.5rem;
+  line-height: 1.65rem;
+  font-weight: 900;
+  -webkit-line-clamp: 3;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.card__bg {
+  align-self: end;
 }

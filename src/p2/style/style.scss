@@ -1,17 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
 $middle-w-mx: 75rem;
 $middle-p-x: 1.5rem;
 $sidebar-w: 17.5rem;
 $middle-gap: 4rem;
 $main-gap: 32px;
-$card-w-mn: 200px;
+$card-w-mn: 15.625rem;
 
-//for div
-div {
-  min-height: 6.25rem;
+body {
+  font-family: 'Radio Canada Big', sans-serif;
+  color: #10284b;
+}
+
+a {
+  text-decoration: none;
+  color: currentColor;
 }
 
 .middle {
-  background-color: oklch(95% 0 0deg); //for div
   padding-inline: $middle-p-x;
 
   &__wrapper {
@@ -19,28 +25,52 @@ div {
     grid-template-columns: $sidebar-w auto;
     margin-inline: auto;
     max-width: $middle-w-mx;
-    background-color: oklch(90% 0 0deg); //for div
     column-gap: $middle-gap;
   }
 }
 
 .sidebar {
-  background-color: oklch(90% 0.05 0deg); //for div
 }
 
 .main {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax($card-w-mn, 1fr));
   gap: $main-gap;
-  background-color: oklch(90% 0.05 60deg); //for div
-  > div {
-    background-color: oklch(90% 0.05 120deg); //for div
-  }
 }
 
 .header {
   grid-column: 1 / -1;
-  background-color: oklch(90% 0.5 250deg) !important; //for div
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: auto min-content;
+  column-gap: 48px;
+  row-gap: 8px;
+
+  &__title {
+    font-size: 48px;
+    font-weight: 900;
+    grid-row: 1;
+    grid-column: 1;
+  }
+
+  &__description {
+    font-weight: 20px;
+    line-height: 30px;
+    grid-row: 2;
+    grid-column: 1 / -1;
+  }
+
+  &__view-all {
+    align-self: center;
+    text-transform: uppercase;
+    font-family: 'Roboto Mono', monospace;
+    color: #381fd1;
+    font-size: 16px;
+    font-weight: 700;
+    grid-row: 1;
+    grid-column: -2;
+    text-wrap: nowrap;
+  }
 }
 
 .cards {
@@ -49,7 +79,68 @@ div {
   grid-auto-rows: 1fr;
   gap: $main-gap;
   grid-column: 1 / -1;
-  > div {
-    background-color: black;
+}
+
+.card {
+  overflow: hidden;
+  display: grid;
+  border-radius: 8px;
+  &--type {
+    &-a {
+      gap: 0.75rem;
+      padding: 1.5rem;
+      border: 0.0625rem solid #cbcbcd;
+    }
+    &-b {
+      > * {
+        grid-column: 1;
+        grid-row: 1;
+      }
+
+      .card__title {
+        margin: 32px;
+      }
+
+      &:nth-child(2) {
+        background-color: #f3f2fc;
+      }
+      &:nth-child(3) {
+        background-color: #f6f6eb;
+      }
+    }
+  }
+
+  &__icon {
+    width: 2.5rem;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    border: 1px solid #cbcbcd;
+    border-radius: 0.5rem;
+  }
+
+  &__category {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.4rem;
+    color: #381fd1;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
+  }
+
+  &__title {
+    height: 3lh;
+    font-size: 1.5rem;
+    line-height: 1.65rem;
+    font-weight: 900;
+    -webkit-line-clamp: 3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  &__bg {
+    align-self: end;
   }
 }
