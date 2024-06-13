@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Position Sticky Example</title>
+    <style>
+      .sticky {
+        position: sticky;
+        top: 0;
+        background-color: #ccc;
+        padding: 10px;
+        z-index: 1000; /* Ensure the sticky element is on top of other content */
+      }
+      .content {
+        height: 2000px; /* Add some height to enable scrolling */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sticky">Sticky Header</div>
+    <div class="content">Scrollable Content</div>
+  </body>
+</html>

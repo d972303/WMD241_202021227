@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Position Absolute Example</title>
+    <style>
+      .container {
+        position: relative;
+      }
+      .dropdown {
+        position: absolute;
+        top: 30px;
+        right: 0;
+        background-color: #f1f1f1;
+        padding: 10px;
+        display: none; /* Initially hide the dropdown */
+      }
+      .container:hover .dropdown {
+        display: block; /* Show the dropdown on hover */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <button>Hover Here</button>
+      <div class="dropdown">
+        <a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
+      </div>
+    </div>
+  </body>
+</html>
